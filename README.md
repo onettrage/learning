@@ -1,2 +1,2 @@
 # learning
-Things learnt and practised
+Exercises from Web Developer Bootcamp by Colt Steele
