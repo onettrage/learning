@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Background Colour Changer</title>
+	<style type="text/css">
+		
+		.purple {
+			background-color: purple;
+		}
+
+		.white {
+			background-color: white;
+		}
+	</style>
+</head>
+<body id="white">
+<button>Click Me</button>
+
+<script type="text/javascript">
+	var button = document.querySelector("button");
+	var isPurple = false;
+	button.addEventListener("click", function(){
+		if(isPurple){
+			document.body.style.backgroundColor = "white";
+			isPurple = false;
+			} else {
+				document.body.style.backgroundColor = "purple";
+				isPurple = true;
+			}
+	});
+</script>
+</body>
+</html>
