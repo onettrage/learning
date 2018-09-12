@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Background Colour Changer</title>
+	<title>Background Colour Toggle</title>
 	<style type="text/css">
 		
 		.purple {
@@ -13,10 +13,12 @@
 		}
 	</style>
 </head>
-<body id="white">
+<body>
 <button>Click Me</button>
 
-<script type="text/javascript">
+
+<!-- method #1 -->
+<!-- <script type="text/javascript">
 	var button = document.querySelector("button");
 	var isPurple = false;
 	button.addEventListener("click", function(){
@@ -27,6 +29,14 @@
 				document.body.style.backgroundColor = "purple";
 				isPurple = true;
 			}
+	});
+</script> -->
+
+<!-- method #2 -->
+<script type="text/javascript">
+	var button = document.querySelector("button");
+	button.addEventListener("click", function(){
+		document.body.classList.toggle("purple");
 	});
 </script>
 </body>
