@@ -1,7 +1,7 @@
 var numSquares = 6;
-var colours = generateRandomColours(numSquares);
+var colours = [];
+var pickedColour;
 var squares = document.querySelectorAll(".square");
-var pickedColour = pickColour();
 var colourDisplay = document.getElementById("colourDisplay");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
@@ -10,28 +10,45 @@ var easy = document.querySelector("#easy");
 var hard = document.querySelector("#hard");
 var modeButtons = document.querySelectorAll(".mode");
 
-for(var i = 0; i < modeButtons.length; i++){
-	modeButtons[i].addEventListener("click", function(){
-		modeButtons[0].classList.remove("selected");
-		modeButtons[1].classList.remove("selected");
-		this.classList.add("selected");
-		
+init();
 
-		// if(this.textContent = "easy"){
-		// 	numSquares = 3
-		// 	} else {
-		// 	numSquares = 6
-		// 	}
-// shorthand version of above if statement, using ternary operator
-		this.textContent === "Easy" ? numSquares =3: numSquares = 6;
-		reset();
+function init(){
+	setUpModes();
+	setUpSquares();
+	reset();
+}
 
-		// How many squares to show
-		// Pick new colours
-		// Pick a new pickColour
-		// Update the page to reflect changes
+function setUpModes(){
+	//mode button event listeners
+	for(var i = 0; i < modeButtons.length; i++){
+		modeButtons[i].addEventListener("click", function(){
+			modeButtons[0].classList.remove("selected");
+			modeButtons[1].classList.remove("selected");
+			this.classList.add("selected");
+			this.textContent === "Easy" ? numSquares =3: numSquares = 6;
+			reset();
+		});
+	}
+}
 
-	});
+function setUpSquares(){
+	for (var i = 0; i < squares.length; i++){
+// add click listeners to squares
+		squares[i].addEventListener("click", function(){
+			// grab colour of clicked square
+			var clickedColour = this.style.backgroundColor;
+			// compare colour of pickedColour
+			if(clickedColour === pickedColour){
+				messageDisplay.textContent = "Correct!";
+				resetButton.textContent = "Play Again?"
+				changeColours(clickedColour);
+				h1.style.backgroundColor = clickedColour;
+			} else {
+				this.style.backgroundColor ="#232323";
+				messageDisplay.textContent = "NOES, GUESS AGAIN!";
+			}
+		});
+	}
 }
 
 function reset(){
@@ -55,61 +72,13 @@ function reset(){
 	}
 	h1.style.backgroundColor = "steelblue";
 }
-		// easy button
-// easy.addEventListener("click", function(){
-// 	easy.classList.add("selected");
-// 	hard.classList.remove("selected");
-// 	numSquares = 3;
-// 	colours = generateRandomColours(numSquares);
-// 	pickedColour = pickColour();
-// 	colourDisplay.textContent = pickedColour;
-// 	for(var i = 0; i < squares.length; i++){
-// 		if(colours[i]){
-// 			squares[i].style.background = colours[i];
-// 		} else {
-// 			squares[i].style.display = "none";
-// 		}
-// 	}
-// })
-
-		// hard button
-// hard.addEventListener("click", function(){
-// 	hard.classList.add("selected");
-// 	easy.classList.remove("selected");
-// 	numSquares = 6;
-// 	colours = generateRandomColours(numSquares);
-// 	pickedColour = pickColour();
-// 	colourDisplay.textContent = pickedColour;
-// 	for(var i = 0; i < squares.length; i++){
-// 		squares[i].style.background = colours[i];
-// 		squares[i].style.display = "block";
-// 		}
-// })
 
 resetButton.addEventListener("click", function() {
-	// // generate new colours
-	// colours = generateRandomColours(numSquares);
-	// // pick a new random colours
-	// pickedColour = pickColour();
-	// // change colour display to match picked colours
-	// colourDisplay.textContent = pickedColour;
-	// this.textContent = "New Colour"
-
-	// messageDisplay.textContent = "";
-	// // change colours of the squares
-	// for(var i = 0; i < squares.length; i++){
-	// 	squares[i].style.backgroundColor = colours[i];
-	// }
-	// h1.style.backgroundColor = "steelblue";
 	reset();
 })
 
-colourDisplay.textContent = pickedColour;
-
 
 for (var i = 0; i < squares.length; i++){
-	// add intial colours to squares
-	squares[i].style.backgroundColor = colours[i];
 	// add click listeners to squares
 	squares[i].addEventListener("click", function(){
 		// grab colour of clicked square
