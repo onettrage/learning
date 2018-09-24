@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Effects</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<style type="text/css">
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: teal;
+			float: left;
+			margin: 20px;
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div>Please don't fade me out!</div>
+	<div>I'm begging you, please!</div>
+	<div>Helllllp!!!</div>
+	<button>Click Me</button>
+
+	<script type="text/javascript">
+		$("button").on("click", function(){
+		$("div").slideToggle(1000, function(){
+			$(this).remove();
+			})
+		});
+
+	</script>
+
+</body>
+</html>
