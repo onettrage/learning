@@ -1,0 +1,14 @@
+{
+  "name": "assignment",
+  "version": "1.0.0",
+  "description": "My attempt at the Web Developer's Bootcamp Express assignment",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Samuel \"Guykokujin\" Samson",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
