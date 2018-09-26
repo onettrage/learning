@@ -1,3 +1,9 @@
+<% include partials/header %>
 <h1> Omg, <%= thingVar %> </h1>
+<% if(thingVar.toLowerCase() === "sam"){%>
+    <p>Nice, it workssssssss</p>
+<% } %>
 
 <p>P.S. This is the omg.ejs file</p>
+
+<% include partials/footer %>
