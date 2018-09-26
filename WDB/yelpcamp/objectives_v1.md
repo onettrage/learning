@@ -22,3 +22,14 @@ Pt.3 - Creating New Campgrounds
 * Add basic unstyled form
 
 --------
+Pt.4 - Campgrounds page styling
+
+* Add a better header/title
+* Make campgrounds display in a grid
+
+
+--------
+Pt.5 - Style navbar and Form
+
+* Add a navbar to all templates
+* Style new campground form
